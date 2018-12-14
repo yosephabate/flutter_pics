@@ -1,4 +1,4 @@
-#Fri Dec 14 11:13:25 EAT 2018
+#Fri Dec 14 19:02:11 EAT 2018
 base.0=/Users/yosephabate/FlutterProjects/flutter_pics/build/app/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
