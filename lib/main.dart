@@ -1,3 +1,5 @@
+// Begin: Version 01
+/*
 // I need to import a helper library
 //  from flutter to get content on the screen
 import 'package:flutter/material.dart';
@@ -13,3 +15,29 @@ void main(List<String> args) {
   // Take that widget and get it on the screen
   runApp(app);
 }
+*/
+// End: Version 01
+//==============================================================
+// Begin: Version 02
+
+import 'package:flutter/material.dart';
+
+void main(List<String> args) {
+  var app = MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text('Let\' see some images!'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          print('Hi there!');
+        },
+      ),
+    ),
+  );
+
+  runApp(app);
+}
+// End: Version 02
+//==============================================================

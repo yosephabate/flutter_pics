@@ -25,4 +25,26 @@ void main(List<String> args) {
 <hr>
 
 <h1>Version 02</h1>
-<p>The following code snippet</p>
+<p>The following code snippet shows how to create AppBar and FloatingActionButton on the mobile phone.</p>
+
+<pre>
+import 'package:flutter/material.dart';
+
+void main(List<String> args) {
+  var app = MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text('Let\' see some images!'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          print('Hi there!');
+        },
+      ),
+    ),
+  );
+
+  runApp(app);
+}
+</pre>
