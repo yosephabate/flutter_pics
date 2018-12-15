@@ -19,7 +19,7 @@ void main(List<String> args) {
 // End: Version 01
 //==============================================================
 // Begin: Version 02
-
+/*
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -39,5 +39,17 @@ void main(List<String> args) {
 
   runApp(app);
 }
+*/
 // End: Version 02
+//==============================================================
+// Begin: Version 03
+import 'package:flutter/material.dart';
+import 'src/app.dart';
+
+void main(List<String> args) {
+  var app = App();
+
+  runApp(app);
+}
+// End: Version 03
 //==============================================================
