@@ -1,3 +1,5 @@
+// Begin: Version 03
+/*
 // Import flutter helper library
 import 'package:flutter/material.dart';
 
@@ -22,3 +24,43 @@ class App extends StatelessWidget {
     );
   }
 }
+*/
+// End: Version 03
+//==============================================================
+// Begin: Version 04
+import 'package:flutter/material.dart';
+
+// Create a StatefulWidget
+class App extends StatefulWidget {
+  @override
+  createState() {
+    return AppState();
+  }
+}
+
+// Change the previous App class to AppState
+//  that extends from State<App>
+class AppState extends State<App> {
+  int counter = 0;
+
+  Widget build(context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Let\' see some images!'),
+        ),
+        body: Text('${counter}'),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            setState(() {
+              counter++;
+            });
+          },
+        ),
+      ),
+    );
+  }
+}
+// End: Version 04
+//==============================================================

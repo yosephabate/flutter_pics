@@ -95,3 +95,56 @@ class App extends StatelessWidget {
   }
 }
 </pre>
+
+<h1>Version 04</h1>
+<p>The following code snippet shows how to create a StatefulWidget in Flutter.</p>
+
+<h2>main.dart</h2>
+
+<pre>
+import 'package:flutter/material.dart';
+import 'src/app.dart';
+
+void main(List<String> args) {
+  runApp(App());
+}
+</pre>
+
+<h2>app.dart</h2>
+
+<pre>
+import 'package:flutter/material.dart';
+
+// Create a StatefulWidget
+class App extends StatefulWidget {
+  @override
+  createState() {
+    return AppState();
+  }
+}
+
+// Change the previous App class to AppState
+//  that extends from State<App>
+class AppState extends State<App> {
+  int counter = 0;
+
+  Widget build(context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Let\' see some images!'),
+        ),
+        body: Text('${counter}'),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            setState(() {
+              counter++;
+            });
+          },
+        ),
+      ),
+    );
+  }
+}
+</pre>
