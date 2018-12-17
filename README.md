@@ -181,3 +181,55 @@ class ImageModel {
 }
 
 </pre>
+
+<h1>Async Process</h1>
+<p>The following code snippet shows to execute a time taking process which usually returns a Future object.</p>
+
+<h2>Option 1</h2>
+
+<pre>
+import 'dart:async';
+
+main() {
+  print('About to fetch data...');
+  
+  get('http://mockupurl')
+    .then((result) {
+      print(result);
+    });
+}
+
+Future<String> get(String url) {
+  return new Future.delayed(
+  	new Duration(seconds: 3), () {
+      return 'Got the data!';
+    }
+  );
+}
+</pre>
+
+<h2>Option 2</h2>
+
+<pre>
+import 'dart:async';
+
+main() async {
+  print('About to fetch data...');
+  
+  /*get('http://mockupurl')
+    .then((result) {
+      print(result);
+    });*/
+  var result = await get('http://mockupurl');
+  
+  print(result);
+}
+
+Future<String> get(String url) {
+  return new Future.delayed(
+  	new Duration(seconds: 3), () {
+      return 'Got the data!';
+    }
+  );
+}
+</pre>

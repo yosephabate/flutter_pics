@@ -68,6 +68,7 @@ class AppState extends State<App> {
 //==============================================================
 // Begin: Version 05
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' show get;
 
 // Create a StatefulWidget
 class App extends StatefulWidget {
@@ -82,6 +83,12 @@ class App extends StatefulWidget {
 class AppState extends State<App> {
   int counter = 0;
 
+  void fetchImage() {
+    counter++;
+    // Make an HTTP request
+    get('http://jsonplaceholder.typicode.com/photos/$counter');
+  }
+
   Widget build(context) {
     return MaterialApp(
       home: Scaffold(
@@ -91,11 +98,7 @@ class AppState extends State<App> {
         body: Text('${counter}'),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
-          onPressed: () {
-            setState(() {
-              counter++;
-            });
-          },
+          onPressed: fetchImage,
         ),
       ),
     );
