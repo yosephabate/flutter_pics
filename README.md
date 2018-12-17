@@ -148,3 +148,36 @@ class AppState extends State<App> {
   }
 }
 </pre>
+
+<h1>Handle JSON</h1>
+<p>The following code snippet shows how encode a JSON object into a model which can be used in another app.</p>
+
+<pre>
+import 'dart:convert';
+
+void main() {
+  var rawJSON = '{"url": "http://blah.jpg", "id": 1}';
+  
+  var parsedJSON = json.decode(rawJSON);
+  //var imageModel = ImageModel(
+  //  parsedJSON['id'], 
+  //  parsedJSON['url']
+  //);
+
+  var imageModel = ImageModel.fromJSON(parsedJSON);
+  print(imageModel.id);
+}
+
+class ImageModel {
+  int id;
+  String url;
+  
+  ImageModel(this.id, this.url);
+  
+  ImageModel.fromJSON(parsedJSON) {
+    id = parsedJSON['id'];
+    url = parsedJSON['url'];
+  }
+}
+
+</pre>
