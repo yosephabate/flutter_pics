@@ -69,6 +69,9 @@ class AppState extends State<App> {
 // Begin: Version 05
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' show get;
+import 'dart:convert';
+import 'models/image_model.dart';
+import 'widgets/image_list.dart';
 
 // Create a StatefulWidget
 class App extends StatefulWidget {
@@ -82,11 +85,19 @@ class App extends StatefulWidget {
 //  that extends from State<App>
 class AppState extends State<App> {
   int counter = 0;
+  List<ImageModel> images = [];
 
-  void fetchImage() {
+  void fetchImage() async {
     counter++;
     // Make an HTTP request
-    get('http://jsonplaceholder.typicode.com/photos/$counter');
+    var response =
+        await get('http://jsonplaceholder.typicode.com/photos/${counter}');
+
+    var imageModel = ImageModel.fromJSON(json.decode(response.body));
+
+    setState(() {
+      images.add(imageModel);
+    });
   }
 
   Widget build(context) {
@@ -95,7 +106,7 @@ class AppState extends State<App> {
         appBar: AppBar(
           title: Text('Let\' see some images!'),
         ),
-        body: Text('${counter}'),
+        body: ImageList(images),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: fetchImage,
